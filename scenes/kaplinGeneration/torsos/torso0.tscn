@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://b45iq2t27btn"]
+
+[ext_resource type="Texture2D" uid="uid://bddflhcusrba5" path="res://assets/kaplinPieces/torso1.png" id="1_db8nk"]
+[ext_resource type="Script" uid="uid://dw83qol0nbex7" path="res://code/kaplinGeneration/torsoPiece.gd" id="1_o7nm3"]
+
+[node name="torso1" type="Node2D" unique_id=1974657582 node_paths=PackedStringArray("HeadJoint")]
+script = ExtResource("1_o7nm3")
+HeadJoint = NodePath("headpoint")
+
+[node name="torso" type="Sprite2D" parent="." unique_id=1938406077]
+position = Vector2(-1, -1)
+texture = ExtResource("1_db8nk")
+
+[node name="headpoint" type="Marker2D" parent="." unique_id=1083018310]
+position = Vector2(0, -36)

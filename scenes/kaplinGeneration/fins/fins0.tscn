@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://c3t7ljyadb7li"]
+
+[ext_resource type="Script" uid="uid://c17bddyupgx58" path="res://code/kaplinGeneration/finsPiece.gd" id="1_q0qhq"]
+[ext_resource type="Texture2D" uid="uid://bi8qo84ukwxxb" path="res://assets/kaplinPieces/fins1.png" id="2_o40nh"]
+
+[node name="Node2D" type="Node2D" unique_id=503262295 node_paths=PackedStringArray("FinJoint")]
+script = ExtResource("1_q0qhq")
+FinJoint = NodePath("Marker2D")
+
+[node name="Fins1" type="Sprite2D" parent="." unique_id=2097912207]
+texture = ExtResource("2_o40nh")
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=1433032576]

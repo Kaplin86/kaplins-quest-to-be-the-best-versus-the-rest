@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bmldgfg6q1g7i"]
+
+[ext_resource type="Script" uid="uid://diwdd50isqk4s" path="res://code/kaplinGeneration/generator.gd" id="1_0c3ad"]
+
+[node name="Node2D" type="Node2D" unique_id=364705450]
+script = ExtResource("1_0c3ad")
