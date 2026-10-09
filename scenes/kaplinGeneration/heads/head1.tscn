@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://dschlw64i4plk"]
+
+[ext_resource type="Script" uid="uid://bkpuh7jom3q4g" path="res://code/kaplinGeneration/headPiece.gd" id="1_6w0kk"]
+[ext_resource type="Texture2D" uid="uid://bjviyevydvuvi" path="res://assets/kaplinPieces/head2.png" id="2_6w0kk"]
+
+[node name="Node2D" type="Node2D" unique_id=1973148568 node_paths=PackedStringArray("HeadJoint", "FinJoint")]
+script = ExtResource("1_6w0kk")
+HeadJoint = NodePath("HeadAttachmentPoint")
+FinJoint = NodePath("FinLocale")
+
+[node name="Head1" type="Sprite2D" parent="." unique_id=784566885]
+texture = ExtResource("2_6w0kk")
+
+[node name="HeadAttachmentPoint" type="Marker2D" parent="." unique_id=1789765555]
+position = Vector2(1, 31)
+
+[node name="FinLocale" type="Marker2D" parent="." unique_id=1751394275]

@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://cigwc1k8gotps"]
+
+[ext_resource type="Script" uid="uid://dru3saex413iu" path="res://code/kaplinGeneration/facePiece.gd" id="1_dbxy5"]
+[ext_resource type="Texture2D" uid="uid://jghoxdfkgck8" path="res://assets/kaplinPieces/face3.png" id="2_dbxy5"]
+
+[node name="Node2D" type="Node2D" unique_id=503262295 node_paths=PackedStringArray("FaceJoint")]
+script = ExtResource("1_dbxy5")
+FaceJoint = NodePath("Marker2D")
+
+[node name="Fins1" type="Sprite2D" parent="." unique_id=2097912207]
+texture = ExtResource("2_dbxy5")
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=1433032576]

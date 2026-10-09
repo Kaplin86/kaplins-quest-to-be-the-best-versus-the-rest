@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://irlffrqppofn"]
+
+[ext_resource type="Script" uid="uid://clixsbob1xqgl" path="res://code/kaplinGeneration/hatPiece.gd" id="1_2qpcp"]
+[ext_resource type="Texture2D" uid="uid://cliy515ilvb2e" path="res://assets/kaplinPieces/hat1.png" id="2_wffvl"]
+
+[node name="HatPiece" type="Node2D" unique_id=1027274644 node_paths=PackedStringArray("FinJoint")]
+script = ExtResource("1_2qpcp")
+FinJoint = NodePath("Marker2D")
+metadata/_custom_type_script = "uid://clixsbob1xqgl"
+
+[node name="Hat1" type="Sprite2D" parent="." unique_id=1171032585]
+visible = false
+texture = ExtResource("2_wffvl")
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=1715021850]
