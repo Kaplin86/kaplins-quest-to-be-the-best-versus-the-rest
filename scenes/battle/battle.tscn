@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://cgn32a61m05ci"]
+
+[ext_resource type="Texture2D" uid="uid://paep8tl20x51" path="res://assets/battle/battleuibackground.png" id="1_ffvsa"]
+[ext_resource type="Script" uid="uid://diwdd50isqk4s" path="res://code/kaplinGeneration/generator.gd" id="2_xd4uy"]
+[ext_resource type="Texture2D" uid="uid://kyb5ghlmiqwn" path="res://assets/generalUI/nineslicepng.png" id="3_xd4uy"]
+
+[node name="Node2D" type="Node2D" unique_id=572097989]
+
+[node name="Battleuibackground" type="Sprite2D" parent="." unique_id=2117710552]
+position = Vector2(576, 324)
+texture = ExtResource("1_ffvsa")
+
+[node name="Enemy" type="SubViewportContainer" parent="." unique_id=1379647579]
+offset_left = -40.0
+offset_top = 59.0
+offset_right = 209.0
+offset_bottom = 308.0
+
+[node name="SubViewport" type="SubViewport" parent="Enemy" unique_id=1605116683]
+transparent_bg = true
+handle_input_locally = false
+canvas_item_default_texture_filter = 0
+size = Vector2i(250, 249)
+render_target_update_mode = 4
+
+[node name="KaplinVisual" type="Node2D" parent="Enemy/SubViewport" unique_id=760226575]
+position = Vector2(131.25, 209.25)
+script = ExtResource("2_xd4uy")
+head = -1
+hat = 3
+metadata/_custom_type_script = "uid://diwdd50isqk4s"
+
+[node name="Enemy2" type="SubViewportContainer" parent="." unique_id=465367248]
+offset_left = 931.0
+offset_top = 59.0
+offset_right = 1180.0
+offset_bottom = 308.0
+
+[node name="SubViewport" type="SubViewport" parent="Enemy2" unique_id=332119813]
+transparent_bg = true
+handle_input_locally = false
+canvas_item_default_texture_filter = 0
+size = Vector2i(249, 249)
+render_target_update_mode = 4
+
+[node name="KaplinVisual" type="Node2D" parent="Enemy2/SubViewport" unique_id=1271704036]
+position = Vector2(131.25, 209.25)
+script = ExtResource("2_xd4uy")
+face = -1
+hat = -1
+metadata/_custom_type_script = "uid://diwdd50isqk4s"
+
+[node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=817966256]
+offset_left = 27.0
+offset_top = 283.0
+offset_right = 157.0
+offset_bottom = 325.0
+texture = ExtResource("3_xd4uy")
+patch_margin_left = 12
+patch_margin_top = 10
+patch_margin_right = 13
+patch_margin_bottom = 12
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="Label" type="Label" parent="." unique_id=653290709]
+oversampling_with_scale = 1
+texture_filter = 1
+offset_left = 40.0
+offset_top = 296.0
+offset_right = 80.0
+offset_bottom = 317.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 9
+text = "hu"

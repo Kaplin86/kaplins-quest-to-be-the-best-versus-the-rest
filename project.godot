@@ -27,6 +27,11 @@ window/stretch/aspect="expand"
 
 enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg")
 
+[gui]
+
+fonts/dynamic_fonts/use_oversampling=false
+theme/custom_font="uid://dkd7fr3rpjbhu"
+
 [physics]
 
 3d/physics_engine="Jolt Physics"
