@@ -27,7 +27,6 @@ render_target_update_mode = 4
 position = Vector2(131.25, 209.25)
 script = ExtResource("2_xd4uy")
 head = -1
-hat = 3
 metadata/_custom_type_script = "uid://diwdd50isqk4s"
 
 [node name="Enemy2" type="SubViewportContainer" parent="." unique_id=465367248]
@@ -46,8 +45,8 @@ render_target_update_mode = 4
 [node name="KaplinVisual" type="Node2D" parent="Enemy2/SubViewport" unique_id=1271704036]
 position = Vector2(131.25, 209.25)
 script = ExtResource("2_xd4uy")
-face = -1
-hat = -1
+face = 3
+hat = 2
 metadata/_custom_type_script = "uid://diwdd50isqk4s"
 
 [node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=817966256]
@@ -66,10 +65,38 @@ axis_stretch_vertical = 1
 [node name="Label" type="Label" parent="." unique_id=653290709]
 oversampling_with_scale = 1
 texture_filter = 1
-offset_left = 40.0
-offset_top = 296.0
-offset_right = 80.0
+offset_left = 31.0
+offset_top = 287.0
+offset_right = 152.0
 offset_bottom = 317.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 9
-text = "hu"
+theme_override_font_sizes/font_size = 25
+text = "heightened head
+kaplin86"
+horizontal_alignment = 1
+
+[node name="NinePatchRect2" type="NinePatchRect" parent="." unique_id=1989112571]
+offset_left = 997.0
+offset_top = 283.0
+offset_right = 1127.0
+offset_bottom = 325.0
+texture = ExtResource("3_xd4uy")
+patch_margin_left = 12
+patch_margin_top = 10
+patch_margin_right = 13
+patch_margin_bottom = 12
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="Label2" type="Label" parent="." unique_id=279428218]
+oversampling_with_scale = 1
+texture_filter = 1
+offset_left = 1001.0
+offset_top = 287.0
+offset_right = 1122.0
+offset_bottom = 320.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "disk jockey
+kaplin86"
+horizontal_alignment = 1
