@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cgn32a61m05ci"]
 
 [ext_resource type="Texture2D" uid="uid://paep8tl20x51" path="res://assets/battle/battleuibackground.png" id="1_ffvsa"]
+[ext_resource type="Script" uid="uid://di8npuby1d77d" path="res://code/battle/board_renderer.gd" id="1_fh7rg"]
 [ext_resource type="Texture2D" uid="uid://cu1d8jju6xepg" path="res://assets/battle/board.png" id="1_h0kxc"]
 [ext_resource type="Texture2D" uid="uid://dcbme5mgfsp2u" path="res://assets/battle/board2.png" id="2_fh7rg"]
 [ext_resource type="Script" uid="uid://diwdd50isqk4s" path="res://code/kaplinGeneration/generator.gd" id="2_xd4uy"]
@@ -8,45 +9,60 @@
 
 [node name="Node2D" type="Node2D" unique_id=572097989]
 
-[node name="BoardRenderer" type="CanvasGroup" parent="." unique_id=1486719426]
+[node name="BoardRenderer" type="CanvasGroup" parent="." unique_id=1486719426 node_paths=PackedStringArray("ControlCamera", "BigBoard", "MiddleMostBoard", "TopLeftBoard", "TopMiddleBoard", "TopRightBoard", "MiddleRightBoard", "BottomRightBoard", "BottomMiddleBoard", "BottomLeftBoard", "MiddleLeftBoard")]
+script = ExtResource("1_fh7rg")
+ControlCamera = NodePath("../Camera2D")
+BigBoard = NodePath("BigBoard")
+MiddleMostBoard = NodePath("MiddleBoard")
+TopLeftBoard = NodePath("TopLeftBoard")
+TopMiddleBoard = NodePath("TopMiddleBoard")
+TopRightBoard = NodePath("TopRightBoard")
+MiddleRightBoard = NodePath("MiddleRightBoard")
+BottomRightBoard = NodePath("BottomRightBoard")
+BottomMiddleBoard = NodePath("BottomMiddleBoard")
+BottomLeftBoard = NodePath("BottomLeftBoard")
+MiddleLeftBoard = NodePath("MiddleLeftBoard")
 
-[node name="BigBoard2" type="Sprite2D" parent="BoardRenderer" unique_id=1221456210]
+[node name="BigBoard" type="Sprite2D" parent="BoardRenderer" unique_id=1221456210]
 position = Vector2(574, 279)
 texture = ExtResource("1_h0kxc")
 
-[node name="Board2" type="Sprite2D" parent="BoardRenderer" unique_id=450123748]
+[node name="MiddleBoard" type="Sprite2D" parent="BoardRenderer" unique_id=450123748]
 position = Vector2(550, 271)
 texture = ExtResource("2_fh7rg")
 
-[node name="Board3" type="Sprite2D" parent="BoardRenderer" unique_id=1708816806]
+[node name="Node2D" type="Node2D" parent="BoardRenderer/MiddleBoard" unique_id=1733272461]
+position = Vector2(-89, 10)
+
+[node name="MiddleRightBoard" type="Sprite2D" parent="BoardRenderer" unique_id=1708816806]
 position = Vector2(814, 276)
 texture = ExtResource("2_fh7rg")
 
-[node name="Board4" type="Sprite2D" parent="BoardRenderer" unique_id=2066863969]
-position = Vector2(813, 513)
+[node name="BottomRightBoard" type="Sprite2D" parent="BoardRenderer" unique_id=2066863969]
+position = Vector2(810, 513)
 texture = ExtResource("2_fh7rg")
 
-[node name="Board5" type="Sprite2D" parent="BoardRenderer" unique_id=1485576859]
+[node name="BottomMiddleBoard" type="Sprite2D" parent="BoardRenderer" unique_id=1485576859]
 position = Vector2(549, 504)
 texture = ExtResource("2_fh7rg")
 
-[node name="Board6" type="Sprite2D" parent="BoardRenderer" unique_id=1151696647]
+[node name="BottomLeftBoard" type="Sprite2D" parent="BoardRenderer" unique_id=1151696647]
 position = Vector2(303, 496)
 texture = ExtResource("2_fh7rg")
 
-[node name="Board7" type="Sprite2D" parent="BoardRenderer" unique_id=1802211758]
+[node name="MiddleLeftBoard" type="Sprite2D" parent="BoardRenderer" unique_id=1802211758]
 position = Vector2(309, 245)
 texture = ExtResource("2_fh7rg")
 
-[node name="Board8" type="Sprite2D" parent="BoardRenderer" unique_id=1726621682]
+[node name="TopLeftBoard" type="Sprite2D" parent="BoardRenderer" unique_id=1726621682]
 position = Vector2(318, 21)
 texture = ExtResource("2_fh7rg")
 
-[node name="Board9" type="Sprite2D" parent="BoardRenderer" unique_id=1651683773]
+[node name="TopMiddleBoard" type="Sprite2D" parent="BoardRenderer" unique_id=1651683773]
 position = Vector2(561, 23)
 texture = ExtResource("2_fh7rg")
 
-[node name="Board10" type="Sprite2D" parent="BoardRenderer" unique_id=372133032]
+[node name="TopRightBoard" type="Sprite2D" parent="BoardRenderer" unique_id=372133032]
 position = Vector2(817, 39)
 texture = ExtResource("2_fh7rg")
 
@@ -188,7 +204,7 @@ axis_stretch_vertical = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1776414970]
-position = Vector2(552, 279)
-scale = Vector2(0.376, 0.376)
-offset = Vector2(0, 5.005)
-zoom = Vector2(2.66, 2.66)
+position = Vector2(548, 271)
+scale = Vector2(1.418, 1.418)
+offset = Vector2(0, 55.135)
+zoom = Vector2(0.705, 0.705)
