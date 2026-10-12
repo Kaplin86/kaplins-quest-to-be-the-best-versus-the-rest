@@ -1,59 +1,137 @@
 [gd_scene format=3 uid="uid://cgn32a61m05ci"]
 
 [ext_resource type="Texture2D" uid="uid://paep8tl20x51" path="res://assets/battle/battleuibackground.png" id="1_ffvsa"]
+[ext_resource type="Texture2D" uid="uid://cu1d8jju6xepg" path="res://assets/battle/board.png" id="1_h0kxc"]
+[ext_resource type="Texture2D" uid="uid://dcbme5mgfsp2u" path="res://assets/battle/board2.png" id="2_fh7rg"]
 [ext_resource type="Script" uid="uid://diwdd50isqk4s" path="res://code/kaplinGeneration/generator.gd" id="2_xd4uy"]
 [ext_resource type="Texture2D" uid="uid://kyb5ghlmiqwn" path="res://assets/generalUI/nineslicepng.png" id="3_xd4uy"]
 
 [node name="Node2D" type="Node2D" unique_id=572097989]
 
-[node name="Battleuibackground" type="Sprite2D" parent="." unique_id=2117710552]
+[node name="BoardRenderer" type="CanvasGroup" parent="." unique_id=1486719426]
+
+[node name="BigBoard2" type="Sprite2D" parent="BoardRenderer" unique_id=1221456210]
+position = Vector2(574, 279)
+texture = ExtResource("1_h0kxc")
+
+[node name="Board2" type="Sprite2D" parent="BoardRenderer" unique_id=450123748]
+position = Vector2(550, 271)
+texture = ExtResource("2_fh7rg")
+
+[node name="Board3" type="Sprite2D" parent="BoardRenderer" unique_id=1708816806]
+position = Vector2(814, 276)
+texture = ExtResource("2_fh7rg")
+
+[node name="Board4" type="Sprite2D" parent="BoardRenderer" unique_id=2066863969]
+position = Vector2(813, 513)
+texture = ExtResource("2_fh7rg")
+
+[node name="Board5" type="Sprite2D" parent="BoardRenderer" unique_id=1485576859]
+position = Vector2(549, 504)
+texture = ExtResource("2_fh7rg")
+
+[node name="Board6" type="Sprite2D" parent="BoardRenderer" unique_id=1151696647]
+position = Vector2(303, 496)
+texture = ExtResource("2_fh7rg")
+
+[node name="Board7" type="Sprite2D" parent="BoardRenderer" unique_id=1802211758]
+position = Vector2(309, 245)
+texture = ExtResource("2_fh7rg")
+
+[node name="Board8" type="Sprite2D" parent="BoardRenderer" unique_id=1726621682]
+position = Vector2(318, 21)
+texture = ExtResource("2_fh7rg")
+
+[node name="Board9" type="Sprite2D" parent="BoardRenderer" unique_id=1651683773]
+position = Vector2(561, 23)
+texture = ExtResource("2_fh7rg")
+
+[node name="Board10" type="Sprite2D" parent="BoardRenderer" unique_id=372133032]
+position = Vector2(817, 39)
+texture = ExtResource("2_fh7rg")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=787937284]
+
+[node name="Battleuibackground" type="Sprite2D" parent="CanvasLayer" unique_id=2117710552]
 position = Vector2(576, 324)
 texture = ExtResource("1_ffvsa")
 
-[node name="Enemy" type="SubViewportContainer" parent="." unique_id=1379647579]
+[node name="Enemy" type="SubViewportContainer" parent="CanvasLayer" unique_id=1379647579]
 offset_left = -40.0
 offset_top = 59.0
-offset_right = 209.0
+offset_right = 210.0
 offset_bottom = 308.0
 
-[node name="SubViewport" type="SubViewport" parent="Enemy" unique_id=1605116683]
+[node name="SubViewport" type="SubViewport" parent="CanvasLayer/Enemy" unique_id=1605116683]
 transparent_bg = true
 handle_input_locally = false
 canvas_item_default_texture_filter = 0
 size = Vector2i(250, 249)
 render_target_update_mode = 4
 
-[node name="KaplinVisual" type="Node2D" parent="Enemy/SubViewport" unique_id=760226575]
+[node name="KaplinVisual" type="Node2D" parent="CanvasLayer/Enemy/SubViewport" unique_id=760226575]
 position = Vector2(131.25, 209.25)
 script = ExtResource("2_xd4uy")
 head = -1
 metadata/_custom_type_script = "uid://diwdd50isqk4s"
 
-[node name="Enemy2" type="SubViewportContainer" parent="." unique_id=465367248]
+[node name="Enemy2" type="SubViewportContainer" parent="CanvasLayer" unique_id=465367248]
 offset_left = 931.0
 offset_top = 59.0
 offset_right = 1180.0
 offset_bottom = 308.0
 
-[node name="SubViewport" type="SubViewport" parent="Enemy2" unique_id=332119813]
+[node name="SubViewport" type="SubViewport" parent="CanvasLayer/Enemy2" unique_id=332119813]
 transparent_bg = true
 handle_input_locally = false
 canvas_item_default_texture_filter = 0
 size = Vector2i(249, 249)
 render_target_update_mode = 4
 
-[node name="KaplinVisual" type="Node2D" parent="Enemy2/SubViewport" unique_id=1271704036]
+[node name="KaplinVisual" type="Node2D" parent="CanvasLayer/Enemy2/SubViewport" unique_id=1271704036]
 position = Vector2(131.25, 209.25)
 script = ExtResource("2_xd4uy")
 face = 3
 hat = 2
 metadata/_custom_type_script = "uid://diwdd50isqk4s"
 
-[node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=817966256]
-offset_left = 27.0
-offset_top = 283.0
-offset_right = 157.0
-offset_bottom = 325.0
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer" unique_id=790329740]
+offset_left = 2.0
+offset_top = 279.0
+offset_right = 184.0
+offset_bottom = 336.0
+
+[node name="Label" type="RichTextLabel" parent="CanvasLayer/CenterContainer" unique_id=1804696196]
+oversampling_with_scale = 1
+texture_filter = 1
+custom_minimum_size = Vector2(81, 31)
+custom_maximum_size = Vector2(150, -1)
+clip_contents = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 25
+theme_override_font_sizes/bold_font_size = 25
+theme_override_font_sizes/bold_italics_font_size = 25
+theme_override_font_sizes/italics_font_size = 25
+theme_override_font_sizes/mono_font_size = 25
+bbcode_enabled = true
+text = "long-headed kaplin86"
+fit_content = true
+scroll_active = false
+autowrap_mode = 2
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer/CenterContainer/Label" unique_id=817966256]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.046666667
+anchor_top = -0.08490566
+anchor_right = 1.0266666
+anchor_bottom = 1.0283018
 texture = ExtResource("3_xd4uy")
 patch_margin_left = 12
 patch_margin_top = 10
@@ -61,25 +139,45 @@ patch_margin_right = 13
 patch_margin_bottom = 12
 axis_stretch_horizontal = 1
 axis_stretch_vertical = 1
+metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="." unique_id=653290709]
+[node name="CenterContainer2" type="CenterContainer" parent="CanvasLayer" unique_id=753806906]
+offset_left = 974.0
+offset_top = 279.0
+offset_right = 1156.0
+offset_bottom = 336.0
+
+[node name="Label" type="RichTextLabel" parent="CanvasLayer/CenterContainer2" unique_id=178499705]
 oversampling_with_scale = 1
 texture_filter = 1
-offset_left = 31.0
-offset_top = 287.0
-offset_right = 152.0
-offset_bottom = 317.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 25
-text = "heightened head
-kaplin86"
+custom_minimum_size = Vector2(81, 31)
+custom_maximum_size = Vector2(150, -1)
+clip_contents = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 25
+theme_override_font_sizes/bold_font_size = 25
+theme_override_font_sizes/bold_italics_font_size = 25
+theme_override_font_sizes/italics_font_size = 25
+theme_override_font_sizes/mono_font_size = 25
+bbcode_enabled = true
+text = "disk jockey kaplin86"
+fit_content = true
+scroll_active = false
+autowrap_mode = 2
 horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="NinePatchRect2" type="NinePatchRect" parent="." unique_id=1989112571]
-offset_left = 997.0
-offset_top = 283.0
-offset_right = 1127.0
-offset_bottom = 325.0
+[node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer/CenterContainer2/Label" unique_id=1724100638]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.046666667
+anchor_top = -0.08490566
+anchor_right = 1.0266666
+anchor_bottom = 1.0283018
 texture = ExtResource("3_xd4uy")
 patch_margin_left = 12
 patch_margin_top = 10
@@ -87,16 +185,10 @@ patch_margin_right = 13
 patch_margin_bottom = 12
 axis_stretch_horizontal = 1
 axis_stretch_vertical = 1
+metadata/_edit_use_anchors_ = true
 
-[node name="Label2" type="Label" parent="." unique_id=279428218]
-oversampling_with_scale = 1
-texture_filter = 1
-offset_left = 1001.0
-offset_top = 287.0
-offset_right = 1122.0
-offset_bottom = 320.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 25
-text = "disk jockey
-kaplin86"
-horizontal_alignment = 1
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1776414970]
+position = Vector2(552, 279)
+scale = Vector2(0.376, 0.376)
+offset = Vector2(0, 5.005)
+zoom = Vector2(2.66, 2.66)
