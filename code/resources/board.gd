@@ -23,9 +23,21 @@ func checkClaim():
 	for X in range(-1,2):
 		var columnPieces : Array[Piece] = []
 		for Y in range(-1,2):
-			columnPieces.append(Vector2i(X,Y))
-			print("appending, ", Vector2i(X,Y) )
-		print("column", X , " ", columnPieces," ", _allExistAndMatchTeam(columnPieces))
+			columnPieces.append(Pieces.get(Vector2i(X,Y),null))
+		if _allExistAndMatchTeam(columnPieces): return true
+	
+	# rows
+	for Y in range(-1,2):
+		var columnPieces : Array[Piece] = []
+		for X in range(-1,2):
+			columnPieces.append(Pieces.get(Vector2i(X,Y),null))
+		if _allExistAndMatchTeam(columnPieces): return true
+	
+	var columnPieces1 : Array[Piece] = [Pieces.get(Vector2i(-1,-1)),Pieces.get(Vector2i(0,0)),Pieces.get(Vector2i(1,1))]
+	var columnPieces2 : Array[Piece] = [Pieces.get(Vector2i(1,-1)),Pieces.get(Vector2i(0,0)),Pieces.get(Vector2i(-1,1))]
+	if _allExistAndMatchTeam(columnPieces1): return true
+	if _allExistAndMatchTeam(columnPieces2): return true
+	return false
 
 func _allExistAndMatchTeam(pieces : Array[Piece]):
 	for I in pieces:

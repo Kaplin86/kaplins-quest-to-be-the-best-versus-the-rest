@@ -70,14 +70,3 @@ func _process(delta: float) -> void:
 	ControlCamera.zoom = lerp(ControlCamera.zoom,wantedZoom,delta*5)
 	ControlCamera.global_position = lerp(ControlCamera.global_position,wantedCameraPos,delta*5)
 	ControlCamera.offset = lerp(ControlCamera.offset,wantedCameraOffset,delta*5)
-	
-	if Input.is_action_just_pressed("ui_up"):
-		focusOnMiniboard(Vector2i(-1,1))
-	if Input.is_action_just_pressed("ui_down"):
-		focusOnMiniboard(Vector2i(0,0))
-	if Input.is_action_just_pressed("ui_left"):
-		focusOnGlobal()
-		
-
-func _ready() -> void:
-	focusOnGlobal()

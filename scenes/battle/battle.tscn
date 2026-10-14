@@ -9,6 +9,8 @@
 [ext_resource type="Script" uid="uid://diwdd50isqk4s" path="res://code/kaplinGeneration/generator.gd" id="2_xd4uy"]
 [ext_resource type="Script" uid="uid://bvv13fvmvdftx" path="res://code/resources/board.gd" id="3_oiw7q"]
 [ext_resource type="Texture2D" uid="uid://kyb5ghlmiqwn" path="res://assets/generalUI/nineslicepng.png" id="3_xd4uy"]
+[ext_resource type="Script" uid="uid://ve5tpaqgbkvh" path="res://code/battle/board_click_reporter.gd" id="10_oiw7q"]
+[ext_resource type="Script" uid="uid://c55lmxsm8lejb" path="res://code/battle/gameplay_handler.gd" id="11_fisqk"]
 
 [sub_resource type="Resource" id="Resource_agsc7"]
 script = ExtResource("2_agsc7")
@@ -18,24 +20,23 @@ metadata/_custom_type_script = "uid://b0b4m26npajrt"
 script = ExtResource("2_agsc7")
 metadata/_custom_type_script = "uid://b0b4m26npajrt"
 
-[sub_resource type="Resource" id="Resource_oiw7q"]
-script = ExtResource("2_agsc7")
-metadata/_custom_type_script = "uid://b0b4m26npajrt"
-
 [sub_resource type="Resource" id="Resource_pll4o"]
 script = ExtResource("3_oiw7q")
 Pieces = Dictionary[Vector2i, ExtResource("2_agsc7")]({
 Vector2i(-1, -1): null,
 Vector2i(-1, 0): null,
 Vector2i(-1, 1): null,
-Vector2i(0, -1): SubResource("Resource_fisqk"),
+Vector2i(0, -1): null,
 Vector2i(0, 0): SubResource("Resource_agsc7"),
-Vector2i(0, 1): SubResource("Resource_oiw7q"),
+Vector2i(0, 1): null,
 Vector2i(1, -1): null,
 Vector2i(1, 0): null,
-Vector2i(1, 1): null
+Vector2i(1, 1): SubResource("Resource_fisqk")
 })
 metadata/_custom_type_script = "uid://bvv13fvmvdftx"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mltvj"]
+size = Vector2(220, 201)
 
 [node name="Node2D" type="Node2D" unique_id=572097989]
 
@@ -45,6 +46,7 @@ miniboard1 = SubResource("Resource_pll4o")
 
 [node name="BoardRenderer" type="CanvasGroup" parent="." unique_id=1486719426 node_paths=PackedStringArray("ControlCamera", "BigBoard", "MiddleMostBoard", "TopLeftBoard", "TopMiddleBoard", "TopRightBoard", "MiddleRightBoard", "BottomRightBoard", "BottomMiddleBoard", "BottomLeftBoard", "MiddleLeftBoard")]
 script = ExtResource("1_fh7rg")
+individualOffset = Vector2(0, 21.485)
 ControlCamera = NodePath("../Camera2D")
 BigBoard = NodePath("BigBoard")
 MiddleMostBoard = NodePath("MiddleBoard")
@@ -242,3 +244,83 @@ position = Vector2(548, 271)
 scale = Vector2(1.418, 1.418)
 offset = Vector2(0, 55.135)
 zoom = Vector2(0.705, 0.705)
+
+[node name="BoardClickReporter" type="Node2D" parent="." unique_id=1284425996 node_paths=PackedStringArray("MiddleMostBoard", "TopLeftBoard", "TopMiddleBoard", "TopRightBoard", "MiddleRightBoard", "BottomRightBoard", "BottomMiddleBoard", "BottomLeftBoard", "MiddleLeftBoard")]
+script = ExtResource("10_oiw7q")
+MiddleMostBoard = NodePath("CenterBigBoard")
+TopLeftBoard = NodePath("TopLeftBigBoard")
+TopMiddleBoard = NodePath("TopMiddleBigBoard")
+TopRightBoard = NodePath("TopRightBigBoard")
+MiddleRightBoard = NodePath("MiddleRightBigBoard")
+BottomRightBoard = NodePath("BottomRightBigBoard")
+BottomMiddleBoard = NodePath("BottomMiddleBigBOard")
+BottomLeftBoard = NodePath("BottomLeftBigBoard")
+MiddleLeftBoard = NodePath("MiddleLeftBigBoard")
+
+[node name="TopLeftBigBoard" type="Area2D" parent="BoardClickReporter" unique_id=1226356365]
+position = Vector2(316, 27)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoardClickReporter/TopLeftBigBoard" unique_id=367130127]
+position = Vector2(-1, -5.5)
+shape = SubResource("RectangleShape2D_mltvj")
+
+[node name="MiddleLeftBigBoard" type="Area2D" parent="BoardClickReporter" unique_id=408781179]
+position = Vector2(308, 249)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoardClickReporter/MiddleLeftBigBoard" unique_id=225785803]
+position = Vector2(-1, 0)
+shape = SubResource("RectangleShape2D_mltvj")
+
+[node name="CenterBigBoard" type="Area2D" parent="BoardClickReporter" unique_id=697684276]
+position = Vector2(553, 271)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoardClickReporter/CenterBigBoard" unique_id=600696910]
+position = Vector2(-1, 0)
+shape = SubResource("RectangleShape2D_mltvj")
+
+[node name="TopMiddleBigBoard" type="Area2D" parent="BoardClickReporter" unique_id=1397952515]
+position = Vector2(558, 31)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoardClickReporter/TopMiddleBigBoard" unique_id=143417101]
+position = Vector2(-1, 0)
+shape = SubResource("RectangleShape2D_mltvj")
+
+[node name="MiddleRightBigBoard" type="Area2D" parent="BoardClickReporter" unique_id=1957695937]
+position = Vector2(814, 280)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoardClickReporter/MiddleRightBigBoard" unique_id=530685866]
+position = Vector2(-1, 0)
+shape = SubResource("RectangleShape2D_mltvj")
+
+[node name="TopRightBigBoard" type="Area2D" parent="BoardClickReporter" unique_id=114533901]
+position = Vector2(807, 39)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoardClickReporter/TopRightBigBoard" unique_id=1590706189]
+position = Vector2(-1, 0)
+shape = SubResource("RectangleShape2D_mltvj")
+
+[node name="BottomRightBigBoard" type="Area2D" parent="BoardClickReporter" unique_id=621998169]
+position = Vector2(814, 517)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoardClickReporter/BottomRightBigBoard" unique_id=1025281707]
+position = Vector2(-1, 0)
+shape = SubResource("RectangleShape2D_mltvj")
+
+[node name="BottomMiddleBigBOard" type="Area2D" parent="BoardClickReporter" unique_id=1892285995]
+position = Vector2(543, 509)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoardClickReporter/BottomMiddleBigBOard" unique_id=102638855]
+position = Vector2(-1, 0)
+shape = SubResource("RectangleShape2D_mltvj")
+
+[node name="BottomLeftBigBoard" type="Area2D" parent="BoardClickReporter" unique_id=173436676]
+position = Vector2(292, 509)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoardClickReporter/BottomLeftBigBoard" unique_id=863623167]
+position = Vector2(-1, 0)
+shape = SubResource("RectangleShape2D_mltvj")
+
+[node name="GameplayHandler" type="Node" parent="." unique_id=1082232081 node_paths=PackedStringArray("boardClickReporter", "boardRenderer")]
+script = ExtResource("11_fisqk")
+boardClickReporter = NodePath("../BoardClickReporter")
+boardRenderer = NodePath("../BoardRenderer")
