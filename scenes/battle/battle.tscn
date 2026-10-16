@@ -4,45 +4,26 @@
 [ext_resource type="Script" uid="uid://di8npuby1d77d" path="res://code/battle/board_renderer.gd" id="1_fh7rg"]
 [ext_resource type="Texture2D" uid="uid://cu1d8jju6xepg" path="res://assets/battle/board.png" id="1_h0kxc"]
 [ext_resource type="Script" uid="uid://beosycqhsbo6j" path="res://code/battle/board_data_holder.gd" id="1_pll4o"]
-[ext_resource type="Script" uid="uid://b0b4m26npajrt" path="res://code/resources/piece.gd" id="2_agsc7"]
 [ext_resource type="Texture2D" uid="uid://dcbme5mgfsp2u" path="res://assets/battle/board2.png" id="2_fh7rg"]
 [ext_resource type="Script" uid="uid://diwdd50isqk4s" path="res://code/kaplinGeneration/generator.gd" id="2_xd4uy"]
-[ext_resource type="Script" uid="uid://bvv13fvmvdftx" path="res://code/resources/board.gd" id="3_oiw7q"]
 [ext_resource type="Texture2D" uid="uid://kyb5ghlmiqwn" path="res://assets/generalUI/nineslicepng.png" id="3_xd4uy"]
+[ext_resource type="Texture2D" uid="uid://dh813t16asjo4" path="res://assets/battle/pieces/sword_o.png" id="10_icoan"]
 [ext_resource type="Script" uid="uid://ve5tpaqgbkvh" path="res://code/battle/board_click_reporter.gd" id="10_oiw7q"]
 [ext_resource type="Script" uid="uid://c55lmxsm8lejb" path="res://code/battle/gameplay_handler.gd" id="11_fisqk"]
-
-[sub_resource type="Resource" id="Resource_agsc7"]
-script = ExtResource("2_agsc7")
-metadata/_custom_type_script = "uid://b0b4m26npajrt"
-
-[sub_resource type="Resource" id="Resource_fisqk"]
-script = ExtResource("2_agsc7")
-metadata/_custom_type_script = "uid://b0b4m26npajrt"
-
-[sub_resource type="Resource" id="Resource_pll4o"]
-script = ExtResource("3_oiw7q")
-Pieces = Dictionary[Vector2i, ExtResource("2_agsc7")]({
-Vector2i(-1, -1): null,
-Vector2i(-1, 0): null,
-Vector2i(-1, 1): null,
-Vector2i(0, -1): null,
-Vector2i(0, 0): SubResource("Resource_agsc7"),
-Vector2i(0, 1): null,
-Vector2i(1, -1): null,
-Vector2i(1, 0): null,
-Vector2i(1, 1): SubResource("Resource_fisqk")
-})
-metadata/_custom_type_script = "uid://bvv13fvmvdftx"
+[ext_resource type="Texture2D" uid="uid://rjhs2awh3kxx" path="res://assets/battle/pieces/basic_x.png" id="11_kd6yx"]
+[ext_resource type="Texture2D" uid="uid://doca03roirea6" path="res://assets/battle/pieces/sword_x.png" id="12_t1kk3"]
+[ext_resource type="Texture2D" uid="uid://c5bq8bp2mc24b" path="res://assets/battle/pieces/basic_o.png" id="13_n6gaa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mltvj"]
 size = Vector2(220, 201)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mlghm"]
+size = Vector2(70, 72)
 
 [node name="Node2D" type="Node2D" unique_id=572097989]
 
 [node name="BoardDataHolder" type="Node" parent="." unique_id=113997975]
 script = ExtResource("1_pll4o")
-miniboard1 = SubResource("Resource_pll4o")
 
 [node name="BoardRenderer" type="CanvasGroup" parent="." unique_id=1486719426 node_paths=PackedStringArray("ControlCamera", "BigBoard", "MiddleMostBoard", "TopLeftBoard", "TopMiddleBoard", "TopRightBoard", "MiddleRightBoard", "BottomRightBoard", "BottomMiddleBoard", "BottomLeftBoard", "MiddleLeftBoard")]
 script = ExtResource("1_fh7rg")
@@ -245,8 +226,10 @@ scale = Vector2(1.418, 1.418)
 offset = Vector2(0, 55.135)
 zoom = Vector2(0.705, 0.705)
 
-[node name="BoardClickReporter" type="Node2D" parent="." unique_id=1284425996 node_paths=PackedStringArray("MiddleMostBoard", "TopLeftBoard", "TopMiddleBoard", "TopRightBoard", "MiddleRightBoard", "BottomRightBoard", "BottomMiddleBoard", "BottomLeftBoard", "MiddleLeftBoard")]
+[node name="BoardClickReporter" type="Node2D" parent="." unique_id=1284425996 node_paths=PackedStringArray("gameplayhandler", "renderer", "MiddleMostBoard", "TopLeftBoard", "TopMiddleBoard", "TopRightBoard", "MiddleRightBoard", "BottomRightBoard", "BottomMiddleBoard", "BottomLeftBoard", "MiddleLeftBoard", "MiddleMostBoard_MINI", "TopLeftBoard_MINI", "TopMiddleBoard_MINI", "TopRightBoard_MINI", "MiddleRightBoard_MINI", "BottomRightBoard_MINI", "BottomMiddleBoard_MINI", "BottomLeftBoard_MINI", "MiddleLeftBoard_MINI", "MiniboardslotHolder")]
 script = ExtResource("10_oiw7q")
+gameplayhandler = NodePath("../GameplayHandler")
+renderer = NodePath("../BoardRenderer")
 MiddleMostBoard = NodePath("CenterBigBoard")
 TopLeftBoard = NodePath("TopLeftBigBoard")
 TopMiddleBoard = NodePath("TopMiddleBigBoard")
@@ -256,6 +239,16 @@ BottomRightBoard = NodePath("BottomRightBigBoard")
 BottomMiddleBoard = NodePath("BottomMiddleBigBOard")
 BottomLeftBoard = NodePath("BottomLeftBigBoard")
 MiddleLeftBoard = NodePath("MiddleLeftBigBoard")
+MiddleMostBoard_MINI = NodePath("BoardbasedClickDetection/MiddleMiddle")
+TopLeftBoard_MINI = NodePath("BoardbasedClickDetection/TopLeft")
+TopMiddleBoard_MINI = NodePath("BoardbasedClickDetection/TopMiddle")
+TopRightBoard_MINI = NodePath("BoardbasedClickDetection/TopRight")
+MiddleRightBoard_MINI = NodePath("BoardbasedClickDetection/MiddleRight")
+BottomRightBoard_MINI = NodePath("BoardbasedClickDetection/BottomRight")
+BottomMiddleBoard_MINI = NodePath("BoardbasedClickDetection/BottomMiddle")
+BottomLeftBoard_MINI = NodePath("BoardbasedClickDetection/BottomLeft")
+MiddleLeftBoard_MINI = NodePath("BoardbasedClickDetection/MiddleLeft")
+MiniboardslotHolder = NodePath("BoardbasedClickDetection")
 
 [node name="TopLeftBigBoard" type="Area2D" parent="BoardClickReporter" unique_id=1226356365]
 position = Vector2(316, 27)
@@ -320,7 +313,92 @@ position = Vector2(292, 509)
 position = Vector2(-1, 0)
 shape = SubResource("RectangleShape2D_mltvj")
 
+[node name="BoardbasedClickDetection" type="Node2D" parent="BoardClickReporter" unique_id=637313794]
+position = Vector2(551, 271)
+
+[node name="TopLeft" type="Area2D" parent="BoardClickReporter/BoardbasedClickDetection" unique_id=1012093533]
+position = Vector2(-87, -90)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoardClickReporter/BoardbasedClickDetection/TopLeft" unique_id=612359119]
+shape = SubResource("RectangleShape2D_mlghm")
+
+[node name="TopMiddle" type="Area2D" parent="BoardClickReporter/BoardbasedClickDetection" unique_id=458037985]
+position = Vector2(1, -82)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoardClickReporter/BoardbasedClickDetection/TopMiddle" unique_id=705030546]
+shape = SubResource("RectangleShape2D_mlghm")
+
+[node name="TopRight" type="Area2D" parent="BoardClickReporter/BoardbasedClickDetection" unique_id=289992271]
+position = Vector2(86, -76)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoardClickReporter/BoardbasedClickDetection/TopRight" unique_id=1393090068]
+shape = SubResource("RectangleShape2D_mlghm")
+
+[node name="MiddleRight" type="Area2D" parent="BoardClickReporter/BoardbasedClickDetection" unique_id=303795047]
+position = Vector2(86, 3)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoardClickReporter/BoardbasedClickDetection/MiddleRight" unique_id=1696634937]
+shape = SubResource("RectangleShape2D_mlghm")
+
+[node name="BottomRight" type="Area2D" parent="BoardClickReporter/BoardbasedClickDetection" unique_id=1165114916]
+position = Vector2(81, 89)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoardClickReporter/BoardbasedClickDetection/BottomRight" unique_id=17061620]
+shape = SubResource("RectangleShape2D_mlghm")
+
+[node name="BottomMiddle" type="Area2D" parent="BoardClickReporter/BoardbasedClickDetection" unique_id=24594581]
+position = Vector2(0, 90)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoardClickReporter/BoardbasedClickDetection/BottomMiddle" unique_id=1365781201]
+shape = SubResource("RectangleShape2D_mlghm")
+
+[node name="BottomLeft" type="Area2D" parent="BoardClickReporter/BoardbasedClickDetection" unique_id=1401362524]
+position = Vector2(-94, 93)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoardClickReporter/BoardbasedClickDetection/BottomLeft" unique_id=672502559]
+shape = SubResource("RectangleShape2D_mlghm")
+
+[node name="MiddleLeft" type="Area2D" parent="BoardClickReporter/BoardbasedClickDetection" unique_id=2051767028]
+position = Vector2(-91, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoardClickReporter/BoardbasedClickDetection/MiddleLeft" unique_id=2116397412]
+shape = SubResource("RectangleShape2D_mlghm")
+
+[node name="MiddleMiddle" type="Area2D" parent="BoardClickReporter/BoardbasedClickDetection" unique_id=1230122717]
+position = Vector2(0, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoardClickReporter/BoardbasedClickDetection/MiddleMiddle" unique_id=1837756984]
+shape = SubResource("RectangleShape2D_mlghm")
+
 [node name="GameplayHandler" type="Node" parent="." unique_id=1082232081 node_paths=PackedStringArray("boardClickReporter", "boardRenderer")]
 script = ExtResource("11_fisqk")
 boardClickReporter = NodePath("../BoardClickReporter")
 boardRenderer = NodePath("../BoardRenderer")
+
+[node name="SwordO" type="Sprite2D" parent="." unique_id=512109360]
+position = Vector2(457, 361)
+texture = ExtResource("10_icoan")
+
+[node name="BasicX" type="Sprite2D" parent="." unique_id=819511760]
+position = Vector2(550, 275)
+texture = ExtResource("11_kd6yx")
+
+[node name="SwordX" type="Sprite2D" parent="." unique_id=720813781]
+position = Vector2(546, 362)
+texture = ExtResource("12_t1kk3")
+
+[node name="BasicO" type="Sprite2D" parent="." unique_id=1739216588]
+position = Vector2(547, 198)
+texture = ExtResource("13_n6gaa")
+
+[node name="BasicO2" type="Sprite2D" parent="." unique_id=43966231]
+position = Vector2(634, 278)
+texture = ExtResource("13_n6gaa")
+
+[node name="SwordO2" type="Sprite2D" parent="." unique_id=1702786381]
+position = Vector2(636, 202)
+texture = ExtResource("10_icoan")
+
+[node name="SwordX2" type="Sprite2D" parent="." unique_id=1380787725]
+position = Vector2(460, 189)
+texture = ExtResource("12_t1kk3")
