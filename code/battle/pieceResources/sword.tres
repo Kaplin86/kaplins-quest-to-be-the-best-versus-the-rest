@@ -1,11 +1,15 @@
 [gd_resource type="Resource" script_class="PercentOverwritingPiece" format=3 uid="uid://1506f8w4vwl"]
 
 [ext_resource type="Script" uid="uid://daj72ypqgs40h" path="res://code/resources/pieces/percentage_overwrite_piece.gd" id="1_7qp7t"]
+[ext_resource type="Texture2D" uid="uid://dh813t16asjo4" path="res://assets/battle/pieces/sword_o.png" id="1_n5i0e"]
+[ext_resource type="Texture2D" uid="uid://doca03roirea6" path="res://assets/battle/pieces/sword_x.png" id="2_eb810"]
 
 [resource]
 script = ExtResource("1_7qp7t")
 DisplayName = "Sword Piece"
 Description = "When this is [b] Overwriting [/b] another piece, it has a 50% chance to be successful. 
 If it fails to overwrite, the nothing happens and the piece is lost."
+IconX = ExtResource("2_eb810")
+IconO = ExtResource("1_n5i0e")
 Overwriting = true
 metadata/_custom_type_script = "uid://daj72ypqgs40h"

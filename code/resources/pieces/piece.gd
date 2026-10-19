@@ -9,6 +9,12 @@ class_name Piece
 ## The ingame description
 @export_multiline() var Description := "Nothing special, Nothing terrible"
 
+## The Texture used for the piece on the X team
+@export var IconX : Texture 
+
+## The Texture used for the piece on the O team
+@export var IconO : Texture 
+
 ## A boolean to determine if it can overwrite
 @export var Overwriting = false
 

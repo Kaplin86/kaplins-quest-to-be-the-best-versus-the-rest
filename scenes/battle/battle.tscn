@@ -7,12 +7,12 @@
 [ext_resource type="Texture2D" uid="uid://dcbme5mgfsp2u" path="res://assets/battle/board2.png" id="2_fh7rg"]
 [ext_resource type="Script" uid="uid://diwdd50isqk4s" path="res://code/kaplinGeneration/generator.gd" id="2_xd4uy"]
 [ext_resource type="Texture2D" uid="uid://kyb5ghlmiqwn" path="res://assets/generalUI/nineslicepng.png" id="3_xd4uy"]
-[ext_resource type="Texture2D" uid="uid://dh813t16asjo4" path="res://assets/battle/pieces/sword_o.png" id="10_icoan"]
+[ext_resource type="Script" uid="uid://bh34rgknfkt0d" path="res://code/battle/hand_piece_selector.gd" id="10_mxe8n"]
 [ext_resource type="Script" uid="uid://ve5tpaqgbkvh" path="res://code/battle/board_click_reporter.gd" id="10_oiw7q"]
 [ext_resource type="Script" uid="uid://c55lmxsm8lejb" path="res://code/battle/gameplay_handler.gd" id="11_fisqk"]
-[ext_resource type="Texture2D" uid="uid://rjhs2awh3kxx" path="res://assets/battle/pieces/basic_x.png" id="11_kd6yx"]
-[ext_resource type="Texture2D" uid="uid://doca03roirea6" path="res://assets/battle/pieces/sword_x.png" id="12_t1kk3"]
-[ext_resource type="Texture2D" uid="uid://c5bq8bp2mc24b" path="res://assets/battle/pieces/basic_o.png" id="13_n6gaa"]
+[ext_resource type="Script" uid="uid://b0b4m26npajrt" path="res://code/resources/pieces/piece.gd" id="11_icoan"]
+[ext_resource type="Resource" uid="uid://2pfteds52rjh" path="res://code/battle/pieceResources/basic.tres" id="12_icoan"]
+[ext_resource type="PackedScene" uid="uid://bqbl4uqqmt2ix" path="res://scenes/battle/piecehandbutton.tscn" id="12_mxe8n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mltvj"]
 size = Vector2(220, 201)
@@ -370,35 +370,32 @@ position = Vector2(0, 1)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BoardClickReporter/BoardbasedClickDetection/MiddleMiddle" unique_id=1837756984]
 shape = SubResource("RectangleShape2D_mlghm")
 
-[node name="GameplayHandler" type="Node" parent="." unique_id=1082232081 node_paths=PackedStringArray("boardClickReporter", "boardRenderer")]
+[node name="GameplayHandler" type="Node" parent="." unique_id=1082232081 node_paths=PackedStringArray("boardClickReporter", "boardRenderer", "handSelector")]
 script = ExtResource("11_fisqk")
 boardClickReporter = NodePath("../BoardClickReporter")
 boardRenderer = NodePath("../BoardRenderer")
+handSelector = NodePath("../HandPieceSelector")
 
-[node name="SwordO" type="Sprite2D" parent="." unique_id=512109360]
-position = Vector2(457, 361)
-texture = ExtResource("10_icoan")
+[node name="HandPieceSelector" type="CanvasLayer" parent="." unique_id=118324935 node_paths=PackedStringArray("destinationHbox")]
+layer = 2
+script = ExtResource("10_mxe8n")
+hand = Array[ExtResource("11_icoan")]([ExtResource("12_icoan"), ExtResource("12_icoan"), ExtResource("12_icoan"), ExtResource("12_icoan")])
+destinationHbox = NodePath("HBoxContainer")
 
-[node name="BasicX" type="Sprite2D" parent="." unique_id=819511760]
-position = Vector2(550, 275)
-texture = ExtResource("11_kd6yx")
+[node name="HBoxContainer" type="HBoxContainer" parent="HandPieceSelector" unique_id=677457670]
+offset_left = 359.0
+offset_top = 557.0
+offset_right = 761.0
+offset_bottom = 633.0
 
-[node name="SwordX" type="Sprite2D" parent="." unique_id=720813781]
-position = Vector2(546, 362)
-texture = ExtResource("12_t1kk3")
+[node name="Button" parent="HandPieceSelector/HBoxContainer" unique_id=1691460280 instance=ExtResource("12_mxe8n")]
+layout_mode = 2
 
-[node name="BasicO" type="Sprite2D" parent="." unique_id=1739216588]
-position = Vector2(547, 198)
-texture = ExtResource("13_n6gaa")
+[node name="Button2" parent="HandPieceSelector/HBoxContainer" unique_id=1817300895 instance=ExtResource("12_mxe8n")]
+layout_mode = 2
 
-[node name="BasicO2" type="Sprite2D" parent="." unique_id=43966231]
-position = Vector2(634, 278)
-texture = ExtResource("13_n6gaa")
+[node name="Button3" parent="HandPieceSelector/HBoxContainer" unique_id=1903776757 instance=ExtResource("12_mxe8n")]
+layout_mode = 2
 
-[node name="SwordO2" type="Sprite2D" parent="." unique_id=1702786381]
-position = Vector2(636, 202)
-texture = ExtResource("10_icoan")
-
-[node name="SwordX2" type="Sprite2D" parent="." unique_id=1380787725]
-position = Vector2(460, 189)
-texture = ExtResource("12_t1kk3")
+[node name="Button4" parent="HandPieceSelector/HBoxContainer" unique_id=302367284 instance=ExtResource("12_mxe8n")]
+layout_mode = 2

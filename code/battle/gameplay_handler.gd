@@ -5,6 +5,8 @@ class_name GameplayHandlerNode
 
 @export var boardClickReporter : BoardClickReporter
 @export var boardRenderer : BoardRendererNode
+@export var handSelector : HandPieceSelectorNode
+@export var boardDataHolder : BoardDataHolderNode
 
 ## The location of the current "focused" "miniboard"
 var currentFocusedMini : Vector2i = Vector2i(-9,-9)
@@ -30,7 +32,26 @@ func doTurn():
 	if currentFocusedMini == null or currentFocusedMini == Vector2i(-9,-9):
 		currentFocusedMini = await chooseMiniboard()
 	boardRenderer.focusOnMiniboard(currentFocusedMini)
-	await get_tree().create_timer(3000).timeout
+	while actionsRemaining != 0:
+		await doMove()
+		actionsRemaining -= 1
+	await get_tree().create_timer(2).timeout
+
+func doMove():
+	if PLYRTEAM == currentTeamTurn:
+		var chosenPlace = Vector2i(-9,-9)
+		while chosenPlace == Vector2i(-9,-9):
+			var move = await boardClickReporter.ClickedMiniboardSlot
+			if handSelector.currentSelectedPieceID != -1:
+				chosenPlace = move
+		
+		
+		
+	else:
+		pass
+
+func place(location : Vector2i, miniboard : Vector2i, piece : Piece, team : int):
+	
 
 func chooseMiniboard():
 	boardRenderer.focusOnGlobal()

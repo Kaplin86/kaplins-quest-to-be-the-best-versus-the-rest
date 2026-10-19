@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://bqbl4uqqmt2ix"]
+
+[ext_resource type="Texture2D" uid="uid://kyb5ghlmiqwn" path="res://assets/generalUI/nineslicepng.png" id="1_66dei"]
+[ext_resource type="Texture2D" uid="uid://rjhs2awh3kxx" path="res://assets/battle/pieces/basic_x.png" id="2_8cyib"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mltvj"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+texture = ExtResource("1_66dei")
+texture_margin_left = 34.0
+texture_margin_top = 7.0
+texture_margin_right = 45.0
+texture_margin_bottom = 14.0
+modulate_color = Color(0.25, 0.25, 0.25, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oiw7q"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+texture = ExtResource("1_66dei")
+texture_margin_left = 34.0
+texture_margin_top = 7.0
+texture_margin_right = 45.0
+texture_margin_bottom = 14.0
+modulate_color = Color(0.69, 0.69, 0.69, 1)
+
+[node name="Button" type="Button" unique_id=1691460280]
+size_flags_horizontal = 3
+offset_transform_enabled = true
+theme_override_styles/normal = SubResource("StyleBoxTexture_mltvj")
+theme_override_styles/hover = SubResource("StyleBoxTexture_oiw7q")
+icon = ExtResource("2_8cyib")
+icon_alignment = 1
+expand_icon = true
