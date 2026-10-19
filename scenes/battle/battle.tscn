@@ -370,11 +370,12 @@ position = Vector2(0, 1)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BoardClickReporter/BoardbasedClickDetection/MiddleMiddle" unique_id=1837756984]
 shape = SubResource("RectangleShape2D_mlghm")
 
-[node name="GameplayHandler" type="Node" parent="." unique_id=1082232081 node_paths=PackedStringArray("boardClickReporter", "boardRenderer", "handSelector")]
+[node name="GameplayHandler" type="Node" parent="." unique_id=1082232081 node_paths=PackedStringArray("boardClickReporter", "boardRenderer", "handSelector", "boardDataHolder")]
 script = ExtResource("11_fisqk")
 boardClickReporter = NodePath("../BoardClickReporter")
 boardRenderer = NodePath("../BoardRenderer")
 handSelector = NodePath("../HandPieceSelector")
+boardDataHolder = NodePath("../BoardDataHolder")
 
 [node name="HandPieceSelector" type="CanvasLayer" parent="." unique_id=118324935 node_paths=PackedStringArray("destinationHbox")]
 layer = 2

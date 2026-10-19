@@ -43,4 +43,6 @@ func _process(delta):
 			I.offset_transform_position = lerp(I.offset_transform_position,Vector2(0,-30),delta * 20)
 		else:
 			I.offset_transform_position = lerp(I.offset_transform_position,Vector2(0,0),delta * 20)
-	
+
+func getSelectedPiece() -> Piece:
+	return hand[currentSelectedPieceID]

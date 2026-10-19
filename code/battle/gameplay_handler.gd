@@ -29,29 +29,33 @@ func _ready():
 			await doTurn()
 
 func doTurn():
+	print("DOING TURN FOR ", currentTeamTurn)
 	if currentFocusedMini == null or currentFocusedMini == Vector2i(-9,-9):
 		currentFocusedMini = await chooseMiniboard()
 	boardRenderer.focusOnMiniboard(currentFocusedMini)
 	while actionsRemaining != 0:
 		await doMove()
 		actionsRemaining -= 1
-	await get_tree().create_timer(2).timeout
+	await get_tree().create_timer(1).timeout
 
 func doMove():
 	if PLYRTEAM == currentTeamTurn:
 		var chosenPlace = Vector2i(-9,-9)
 		while chosenPlace == Vector2i(-9,-9):
 			var move = await boardClickReporter.ClickedMiniboardSlot
+			print("PLYR CLICKED", move)
 			if handSelector.currentSelectedPieceID != -1:
 				chosenPlace = move
-		
+		place(chosenPlace,currentFocusedMini,handSelector.getSelectedPiece(),currentTeamTurn)
 		
 		
 	else:
 		pass
 
 func place(location : Vector2i, miniboard : Vector2i, piece : Piece, team : int):
-	
+	var newPiece = piece.duplicate()
+	newPiece.Team = team
+	boardDataHolder.setPiece(location,miniboard,newPiece)
 
 func chooseMiniboard():
 	boardRenderer.focusOnGlobal()
